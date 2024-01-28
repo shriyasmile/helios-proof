@@ -1,4 +1,5 @@
-import styles from './page.module.css'
+import styles from './page.module.css';
+import Link from 'next/l;ink';
 
 export default function About() {
     return(
