@@ -17,9 +17,27 @@ steps:
 
 - script: |
     npm i -g yarn
-  displayName: 'install yarn'
+  displayName: 'Install yarn'
+  
+- script: |
+    yarn install
+  displayName: 'Install packages'
 
 - script: |
-    npm install --frozen-lockfile
-    npm run build
+    yarn test
+  displayName: 'Test code'
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results junit.xml'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: junit.xml
+
+- script: |
+    rm -rf node_modules
+  displayName: 'Remove packages'
+
+- script: |
+    yarn install --production --frozen-lockfile
+    yarn build
   displayName: 'yarn install and build'
