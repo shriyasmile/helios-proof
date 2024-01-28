@@ -44,7 +44,7 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
-        <a
+        <Link
           href="/about"
           className={styles.card}
           rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default function Home() {
             About
           </h2>
           <p>About Alpha Corp.</p>
-        </a>
+        </Link>
       </div>
     </main>
   )
